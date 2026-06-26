@@ -1,31 +1,15 @@
 const cityData = {
-  mumbai: {
-    name: "Mumbai",
-    summary: "Showing fast-moving bridal, diamond and daily wear pieces for Mumbai."
-  },
-  delhi: {
-    name: "Delhi",
-    summary: "Showing wedding, festive and gifting pieces available for Delhi NCR."
-  },
-  jaipur: {
-    name: "Jaipur",
-    summary: "Showing colourful, bridal and heritage-inspired designs for Jaipur."
-  },
-  ahmedabad: {
-    name: "Ahmedabad",
-    summary: "Showing lightweight gold, festive and family gifting pieces for Ahmedabad."
-  },
-  bengaluru: {
-    name: "Bengaluru",
-    summary: "Showing modern, lightweight and diamond-forward jewellery for Bengaluru."
-  }
+  mumbai: { name: "Mumbai", summary: "Showing fast-moving bridal, diamond and daily wear pieces for Mumbai." },
+  delhi: { name: "Delhi", summary: "Showing wedding, festive and gifting pieces available for Delhi NCR." },
+  jaipur: { name: "Jaipur", summary: "Showing colourful, bridal and heritage-inspired designs for Jaipur." },
+  ahmedabad: { name: "Ahmedabad", summary: "Showing lightweight gold, festive and family gifting pieces for Ahmedabad." },
+  bengaluru: { name: "Bengaluru", summary: "Showing modern, lightweight and diamond-forward jewellery for Bengaluru." }
 };
 
-// To add a product: copy one block below, change the text, and put the image file inside the assets folder.
 const products = [
   {
     name: "Deep Gold Bangles",
-    image: "assets/product-bangles.png",
+    image: "product-bangles.png",
     category: "daily",
     price: "Rs. 88,000",
     tag: "22K Gold",
@@ -34,7 +18,7 @@ const products = [
   },
   {
     name: "Deep Diamond Ring",
-    image: "assets/product-ring.png",
+    image: "product-ring.png",
     category: "gift",
     price: "Rs. 66,000",
     tag: "Diamond",
@@ -43,7 +27,7 @@ const products = [
   },
   {
     name: "Deep Bridal Necklace",
-    image: "assets/product-necklace.png",
+    image: "product-necklace.png",
     category: "bridal",
     price: "Rs. 2,75,000",
     tag: "Bridal Gold",
@@ -52,7 +36,7 @@ const products = [
   },
   {
     name: "Deep Floral Pendant",
-    image: "assets/product-pendant.png",
+    image: "product-pendant.png",
     category: "daily",
     price: "Rs. 42,000",
     tag: "Gold Pendant",
@@ -89,27 +73,25 @@ function renderProducts() {
   citySelect.value = activeCity;
   bookingCity.value = city.name;
 
-  productGrid.innerHTML = visibleProducts
-    .map((product) => {
-      return `
-        <article class="product-card">
-          <img class="product-image" src="${product.image}" alt="${product.name}" />
-          <div class="product-body">
-            <div class="product-meta">
-              <span>${product.tag}</span>
-              <span>${city.name}</span>
-            </div>
-            <h3>${product.name}</h3>
-            <p>${product.note}</p>
-            <div class="product-footer">
-              <span class="price">${product.price}</span>
-              <button class="small-btn" type="button" data-product="${product.name}">Add to Visit</button>
-            </div>
+  productGrid.innerHTML = visibleProducts.map((product) => {
+    return `
+      <article class="product-card">
+        <img class="product-image" src="${product.image}" alt="${product.name}" />
+        <div class="product-body">
+          <div class="product-meta">
+            <span>${product.tag}</span>
+            <span>${city.name}</span>
           </div>
-        </article>
-      `;
-    })
-    .join("");
+          <h3>${product.name}</h3>
+          <p>${product.note}</p>
+          <div class="product-footer">
+            <span class="price">${product.price}</span>
+            <button class="small-btn" type="button" data-product="${product.name}">Add to Visit</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 citySelect.addEventListener("change", (event) => {
@@ -129,7 +111,6 @@ filterButtons.forEach((button) => {
 productGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-product]");
   if (!button) return;
-
   bookingStatus.textContent = `${button.dataset.product} added to the home visit request. Fill the form and submit.`;
   document.querySelector("#visit").scrollIntoView({ behavior: "smooth" });
 });
@@ -140,8 +121,7 @@ bookingForm.addEventListener("submit", (event) => {
   const customerName = formData.get("name") || "Customer";
   const city = formData.get("city");
   const date = formData.get("date");
-
-  bookingStatus.textContent = `Thank you, ${customerName}. Your ${city} home visit request for ${date} is ready. In a real website this will go to your WhatsApp, email or shop dashboard.`;
+  bookingStatus.textContent = `Thank you, ${customerName}. Your ${city} home visit request for ${date} is ready.`;
   bookingForm.reset();
   bookingCity.value = cityData[activeCity].name;
 });
@@ -153,7 +133,6 @@ quizButton.addEventListener("click", () => {
     festival: "Recommend gold bangles, festive necklaces and colourful meenakari pieces.",
     daily: "Recommend lightweight rings, slim bangles and small diamond pendants."
   };
-
   quizResult.textContent = suggestions[giftPurpose.value];
 });
 
