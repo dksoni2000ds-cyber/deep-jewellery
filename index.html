@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Jewellery | City Collections & Home Visits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Deep Jewellery home">
+        <span class="brand-mark">D</span>
+        <span>
+          <strong>Deep Jewellery</strong>
+          <small>Fine jewellery, city by city</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#collections">Collections</a>
+        <a href="#visit">Home Visit</a>
+        <a href="#quiz">Gift Finder</a>
+      </nav>
+      <a class="nav-cta" href="#visit">Book Visit</a>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Gold, diamond and bridal pieces near you</p>
+          <h1>Jewellery chosen for your city, brought to your home.</h1>
+          <p class="hero-text">Customers can browse products available in their Indian city, compare collections, and request a personal home visit with curated pieces.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#collections">Explore City Products</a>
+            <a class="secondary-btn" href="#visit">Schedule Home Visit</a>
+          </div>
+        </div>
+        <div class="city-panel" aria-label="Choose city">
+          <label for="citySelect">Shop by city</label>
+          <select id="citySelect">
+            <option value="mumbai">Mumbai</option>
+            <option value="delhi">Delhi</option>
+            <option value="jaipur">Jaipur</option>
+            <option value="ahmedabad" selected>Ahmedabad</option>
+            <option value="bengaluru">Bengaluru</option>
+          </select>
+          <p id="citySummary">Showing lightweight gold, festive and family gifting pieces for Ahmedabad.</p>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Service highlights">
+        <div>
+          <strong>City-wise stock</strong>
+          <span>Show only pieces available near each customer.</span>
+        </div>
+        <div>
+          <strong>Private home visit</strong>
+          <span>Bring selected jewellery to the customer's address.</span>
+        </div>
+        <div>
+          <strong>Verified buying</strong>
+          <span>Hallmark, certificates and payment options shown clearly.</span>
+        </div>
+      </section>
+
+      <section class="section" id="collections">
+        <div class="section-heading">
+          <p class="eyebrow">City collection</p>
+          <h2 id="collectionTitle">Popular in Ahmedabad</h2>
+          <p>Each city can have its own products, offers, delivery timing and visit availability.</p>
+        </div>
+        <div class="filters" aria-label="Product filters">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="bridal">Bridal</button>
+          <button class="filter" type="button" data-filter="daily">Daily Wear</button>
+          <button class="filter" type="button" data-filter="gift">Gifts</button>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="split-section" id="visit">
+        <div class="visit-copy">
+          <p class="eyebrow">Personal home visit</p>
+          <h2>Let customers book a jewellery viewing at home.</h2>
+          <p>Instead of only asking people to come to the shop, this website can collect city, date, budget and occasion so your staff arrives prepared with the right designs.</p>
+          <div class="visit-steps">
+            <span>1. Select city</span>
+            <span>2. Share occasion</span>
+            <span>3. Confirm visit</span>
+          </div>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <div class="form-row">
+            <label>
+              Full name
+              <input required name="name" placeholder="Customer name" />
+            </label>
+            <label>
+              Phone number
+              <input required name="phone" placeholder="+91 98765 43210" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              City
+              <select required name="city" id="bookingCity">
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Jaipur</option>
+                <option>Ahmedabad</option>
+                <option>Bengaluru</option>
+              </select>
+            </label>
+            <label>
+              Visit date
+              <input required name="date" type="date" />
+            </label>
+          </div>
+          <label>
+            Occasion
+            <select required name="occasion">
+              <option>Wedding shopping</option>
+              <option>Anniversary gift</option>
+              <option>Festive purchase</option>
+              <option>Daily wear</option>
+              <option>Investment gold</option>
+            </select>
+          </label>
+          <label>
+            Approximate budget
+            <select required name="budget">
+              <option>Under Rs. 50,000</option>
+              <option>Rs. 50,000 - Rs. 1,50,000</option>
+              <option>Rs. 1,50,000 - Rs. 5,00,000</option>
+              <option>Above Rs. 5,00,000</option>
+            </select>
+          </label>
+          <label>
+            Address note
+            <textarea name="address" rows="4" placeholder="Area, landmark and preferred time"></textarea>
+          </label>
+          <button class="primary-btn full" type="submit">Request Home Visit</button>
+          <p class="form-note" id="bookingStatus">Your customer will see a confirmation message here.</p>
+        </form>
+      </section>
+
+      <section class="quiz-section" id="quiz">
+        <div>
+          <p class="eyebrow">Unique feature</p>
+          <h2>Jewellery Gift Finder</h2>
+          <p>Customers answer one simple question and the website suggests a collection. This makes the shopping experience feel personal, even before they call you.</p>
+        </div>
+        <div class="quiz-box">
+          <label for="giftPurpose">What is the purchase for?</label>
+          <select id="giftPurpose">
+            <option value="wedding">Wedding or engagement</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="festival">Festival</option>
+            <option value="daily">Everyday office wear</option>
+          </select>
+          <button class="secondary-btn" type="button" id="quizButton">Suggest Jewellery</button>
+          <p id="quizResult">Choose an occasion to see a recommendation.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Deep Jewellery</strong>
+        <span>Sample website concept for your jewellery business.</span>
+      </div>
+      <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
