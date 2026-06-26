@@ -126,7 +126,7 @@ a {
   padding: clamp(38px, 6vw, 84px) clamp(18px, 4vw, 56px);
   background:
     linear-gradient(90deg, rgba(255, 248, 250, 0.96) 0%, rgba(255, 248, 250, 0.82) 42%, rgba(255, 248, 250, 0.22) 100%),
-    url("assets/hero-jewellery.png") right center / cover no-repeat;
+    url("hero-jewellery.png") right center / cover no-repeat;
 }
 
 .hero-copy {
@@ -454,7 +454,7 @@ textarea {
     min-height: auto;
     background:
       linear-gradient(180deg, rgba(255, 248, 250, 0.96) 0%, rgba(255, 248, 250, 0.9) 54%, rgba(255, 248, 250, 0.3) 100%),
-      url("assets/hero-jewellery.png") center bottom / cover no-repeat;
+      url("hero-jewellery.png") center bottom / cover no-repeat;
   }
 
   .hero-copy {
